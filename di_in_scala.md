@@ -8,21 +8,18 @@ DI(Dependency injection)Its a popular concept for decoupling client and server i
 DI encourages you to use the constructor patterns which means passing the target dependency as 
 a param when the creation source object happens.
 ## DI in scala can be achieved by 2 ways:
-1. Frameworks
-    a. subcut 
-    b. scaldi 
-    c. guice 
-    d. Macwire
-    e. Grafter
-    f.  Airframe
 
-2. Pure Scala
+- Frameworks
+  - Macwire
+  - scaldi
+  - guice
+  - subcut
+  - Grafter
 
-    a. Cake pattern =>Notes: its an anti pattern. https://kubuszok.com/2018/cake-antipattern/ 
-    b. Reader Monad => Cats Notes: Remove dependencies from function arguments, and remodel the functions as partially-curried on those dependencies. 
-        pass them to monadic functions with run() method(not via function arguments).But it has some performance overhead and it makes the scope of dependencies ambiguous.
-
-    c. Dependency Injection in Functional Programming : This approach needs to use IO Monad library like Cats Effect.
+- Pure Scala
+  - Cake pattern =>Notes: its an anti pattern. https://kubuszok.com/2018/cake-antipattern/ 
+  - Reader Monad => Cats Notes: Remove dependencies from function arguments, and remodel the functions as partially-curried on those dependencies.pass them to monadic functions with run() method(not via function arguments).But it has some performance overhead and it makes the scope of dependencies ambiguous.
+  - Dependency Injection in Functional Programming : This approach needs to use IO Monad library like Cats Effect.
 
 
 ## Comparison chart
@@ -46,7 +43,7 @@ a param when the creation source object happens.
 
 
 
-Reader Monad:
+## Reader Monad:
 
 Plain construction injection:
 

@@ -1,8 +1,13 @@
+---
+id: comparison
+layout: docs
+title: DI Framework Comparison
+---
 
 DI(Dependency injection)Its a popular concept for decoupling client and server implementations.
 DI encourages you to use the constructor patterns which means passing the target dependency as 
 a param when the creation source object happens.
-DI in scala can be achieved by 2 ways:
+## DI in scala can be achieved by 2 ways:
 1. Frameworks
     a. subcut 
     b. scaldi 
@@ -20,7 +25,7 @@ DI in scala can be achieved by 2 ways:
     c. Dependency Injection in Functional Programming : This approach needs to use IO Monad library like Cats Effect.
 
 
-
+## Comparison chart
 
 | Dynamic Runtime Binding /Compile time dependency check | Type safety | Auto-wiring | Constructor injection             | Lazy/eager evaluation switch     | Provider Bindings | Life-Cycle management                                                                                                                              | Additional notes                                                                            |                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------------------------------------|-------------|-------------|-----------------------------------|----------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,7 +67,20 @@ val repo = Repo(userRepo, permRepo)
 val createUserResp = UserHandlerWithMonad.createUser(User(1001, "lambda", "admin")).run(repo) 
 Signature of function: def createUser(user: User): Reader[Repo, Long]
 
+## Summary
+- Compile-time dependency injection:
+  - libraries: Macwire etc.
+  - **pros**: Can validate the presence of dependencies at compile time.
+  - **cons**: Less flexible (e.g., No dynamic type binding)
+  - **cons**: Need to enumerate all dependencies in the same scope (lengthy code).
+  - **cons**: Hard to implement life cycle management (e.g., onStart, onShutdown, etc.).
 
+- Run-time dependency injection
+  - libraries: Google Guice, etc.
+  - **pros**: Allows dynamic type binding.
+  - **pros**: Simpler binding codes. Only need to bind direct dependencies.
+  - **pros**: inject event handler (Guice).
+  - **cons**: Missed binding founds as a runtime error.
 
 
 

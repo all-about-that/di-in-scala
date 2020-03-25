@@ -83,13 +83,13 @@ Signature of function: def createUser(user: User): Reader[Repo, Long]
 
 
 
-References:
-https://github.com/scaldi/scaldi
-https://scala.libhunt.com/categories/647-modularization-and-dependency-injection
-https://gist.github.com/gvolpe/1454db0ed9476ed0189dcc016fd758aa
+**References:**
 
+[scaldi](https://github.com/scaldi/scaldi)
+[comparison score sheet](https://scala.libhunt.com/categories/647-modularization-and-dependency-injection)
+[Providers](https://github.com/google/guice/wiki/InjectingProviders)
+https://gist.github.com/gvolpe/1454db0ed9476ed0189dcc016fd758aa
 https://groups.google.com/forum/#!topic/scaldi/TYU36h7kGqk
 
-Providers: https://github.com/google/guice/wiki/InjectingProviders
 
-P.S: Oleg Ilyenko has passed away so not sure about the maintenance of scaldi. Not to mention he was creator of sangria too :sad:
+_P.S: Oleg Ilyenko has passed away so not sure about the maintenance of scaldi. Not to mention he was creator of sangria too :sad:_

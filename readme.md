@@ -45,24 +45,25 @@ a param when the creation source object happens.
 
 ## Reader Monad:
 
-Plain construction injection:
+*Plain construction injection:*
 
-val userRepo = new UserRepoImpl
+```val userRepo = new UserRepoImpl
 val permRepo = new PermissionRepoImpl
 val repo = Repo(userRepo, permRepo) 
 
 val createUserResp = UserHandlerWithConstructor.createUser(repo, User(1001, "lambda", "admin"))
+```
 
-
-Injection using monad:
+*Injection using monad:*
 A type parameter, a constructor that takes an element of that type, and a flatMap method
 
-val userRepo = new UserRepoImpl
+```val userRepo = new UserRepoImpl
 val permRepo = new PermissionRepoImpl
 val repo = Repo(userRepo, permRepo) 
 
 val createUserResp = UserHandlerWithMonad.createUser(User(1001, "lambda", "admin")).run(repo) 
 Signature of function: def createUser(user: User): Reader[Repo, Long]
+```
 
 ## Summary
 - Compile-time dependency injection:

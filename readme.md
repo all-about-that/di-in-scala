@@ -55,6 +55,37 @@ val createUserResp = UserHandlerWithMonad.createUser(User(1001, "lambda", "admin
 Signature of function: def createUser(user: User): Reader[Repo, Long]
 ```
 
+## Macwire
+Testing with Macwire
+```
+// main code
+package shunting {
+   trait ShuntingModule {
+      lazy val pointSwitcher = wire[PointSwitcher]
+      lazy val trainCarCoupler = wire[TrainCarCoupler]
+      lazy val trainShunter = wire[TrainShunter] 
+   }
+} 
+
+// test
+class ShuntingModuleItTest extends FlatSpec {
+   it should "work" in {
+      // given
+      val mockPointSwitcher = mock[PointSwitcher]
+
+      // when
+      val moduleToTest = new ShuntingModule {
+         // the mock implementation will be used to wire the graph
+         override lazy val pointSwitcher = mockPointSwitcher
+      }
+      moduleToTest.trainShunter.shunt()
+
+      // then
+      verify(mockPointSwitcher).switch(...)
+   }
+}
+```
+
 ## Summary
 - Compile-time dependency injection:
   - libraries: Macwire etc.
